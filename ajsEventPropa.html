@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: black;
+        }
+        .container{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        #outter{
+            width: 30rem;
+            aspect-ratio: 1;
+            background-color: lightcoral;
+            color: black;
+
+            font-size: 1rem;
+
+            
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: start;
+
+        }
+        #middle{
+            
+            width: 20rem;
+            aspect-ratio: 1;
+            background-color: aqua;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: start;
+
+
+        }
+        #inner{
+            width: 10rem;
+            aspect-ratio: 1;
+            background-color:lightslategray;
+
+            text-align: start;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <div id="outter"> outer
+            <div id="middle"> middle
+                <div id="inner">inner</div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const callOuter = (event) => {
+            console.table([{
+                description: "i am outer",
+                Target: event.target,
+                CurrentTarget:event.CurrentTarget,
+            },
+        ]);
+        };
+
+        const callmiddle = (event) => {
+            console.table([{
+                description: "i am middle",
+                Target: event.target,
+                CurrentTarget:event.CurrentTarget,
+            },
+        ]);
+        };
+
+        const callinner = (event) => {
+            console.table([{
+                description: "i am inner",
+                Target: event.target,
+                CurrentTarget:event.CurrentTarget,
+            },
+        ]);
+        event.stopPropagation();
+        };
+         
+        // document.getElementById("inner").addEventListener("click",callinner)
+
+        // document.getElementById("outter").addEventListener("click",callOuter)
+        // document.getElementById("middle").addEventListener("click",callmiddle)
+
+
+         document.getElementById("inner").addEventListener("click",callinner , true)
+
+        document.getElementById("outter").addEventListener("click",callOuter , true)
+        document.getElementById("middle").addEventListener("click",callmiddle , true)
+
+    </script>
+</body>
+</html>
